@@ -191,7 +191,7 @@ btnSubmit.addEventListener("click", (e) => {
           const lifts = document.getElementById(`lift-${closestLift}`);
           lifts.style.top = (currentFloor - 1) * -100 + "%";
           lifts.setAttribute("flag", currentFloor);
-          lifts.style.transition = "all 2s";
+          lifts.style.transition = `all ${currentFloor * 2}s`;
           liftPos[closestLift - 1].busy = true;
 
           setTimeout(() => {
