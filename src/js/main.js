@@ -178,12 +178,12 @@ btnSubmit.addEventListener("click", (e) => {
 
           setTimeout(() => {
             openDoor(closestLift);
-          }, 2500);
+          }, currentFloor * 2 * 1000);
 
           setTimeout(() => {
             closeDoor(closestLift);
             liftPos[closestLift - 1].busy = false;
-          }, 5000);
+          }, currentFloor * 2 * 1000 + 2500);
         }
         if (btnDown) {
           const closestLift = findClosestLift(currentFloor, liftPos);
@@ -195,13 +195,13 @@ btnSubmit.addEventListener("click", (e) => {
           liftPos[closestLift - 1].busy = true;
 
           setTimeout(() => {
-            openDoor(closestLift);
-          }, 2500);
+            openDoor(closestLift, currentFloor);
+          }, currentFloor * 2 * 1000);
 
           setTimeout(() => {
-            closeDoor(closestLift);
+            closeDoor(closestLift, currentFloor);
             liftPos[closestLift - 1].busy = false;
-          }, 5000);
+          }, currentFloor * 2 * 1000 + 2500);
         }
       });
     });
